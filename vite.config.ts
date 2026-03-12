@@ -24,4 +24,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'lucide-react'], // Forzamos esto para que no lo analice en el build
   }
-});
+}); 
