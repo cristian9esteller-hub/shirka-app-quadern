@@ -1,0 +1,17 @@
+SHIRKA NOTES - Quadern de Mestre
+
+Aquesta és la teva aplicació de gestió mestre, totalment configurada i optimitzada.
+
+Instruccions d'ús:
+1. Executa 'npm install' per instal·lar les dependències.
+2. Executa 'npm run dev' per arrancar l'aplicació en mode desenvolupament.
+3. Utilitza la secció d'edició de perfil per gestionar les teves dades (Exportar/Importar/Reiniciar).
+
+Funcionalitats principals:
+- Horari flotant rígid i redimensionable.
+- Gestió d'assistència, alumnes i reunions.
+- Llibreta de notes i calendari integrat.
+- Sistema de seguretat de dades (Exportació a JSON i importació).
+- Disseny modern i professional.
+
+Gràcies per utilitzar Shirka Notes!
