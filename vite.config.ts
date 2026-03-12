@@ -2,37 +2,26 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "localhost",
-    port: 8080,
-    hmr: {
-      overlay: false,
-    },
-  },
-  plugins: [
-    react(),
-    // Solo activamos herramientas extras si no estamos en producción
-    mode === "development",
-  ].filter(Boolean),
+export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    // Esto ayuda a que Vercel no se sature con proyectos de Antigravity
+    target: 'esnext',
+    minify: 'esbuild', // Es mucho más rápido que terser
     sourcemap: false,
-    chunkSizeWarningLimit: 2000,
+    reportCompressedSize: false, // Ganamos segundos al no calcular tamaños
+    chunkSizeWarningLimit: 5000,
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        },
+        manualChunks: undefined, // A veces intentar separarlos consume más memoria, vamos a dejar que lo haga todo junto si prefiere
       },
     },
   },
-}));
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react'], // Forzamos esto para que no lo analice en el build
+  }
+});
