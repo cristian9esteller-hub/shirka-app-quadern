@@ -21,3 +21,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHIRKA_QUADERN }}
           channelId: live
           projectId: shirka-quadern
+# Forzando build con secretos
